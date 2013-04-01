@@ -1,21 +1,23 @@
-# Template Puppet Module for Boxen
-
-An example of how we write Puppet modules for Boxen. Replace this
-paragraph with a short explanation of what the heck makes your module
-useful.
+# Maven Puppet Module for Boxen
 
 ## Usage
 
 ```puppet
-boxen::example { 'best example ever':
-  salutation => 'fam'
+class { 'maven':
+  # you can get encrypted password by runnnint `mvn --encrypt-master-password <password>`
+  master_password => 'master-pass',
 }
 ```
 
+```puppet
+maven::settings { 'settings-default.xml':
+  ensure  => default,
+  content => template("people/${::luser}/settings-default.xml.erb");
+}
+```
 ## Required Puppet Modules
 
 * `boxen`
-* `anything-else`
 
 ## Development
 
