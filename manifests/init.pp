@@ -10,7 +10,7 @@ class maven(
   anchor { 'maven::begin': } ->
   Class['maven::package'] ->
   Class['maven::config'] ->
-  Maven::settings <| |> ->
+  Maven::Settings <| |> ->
   anchor { 'maven::end': }
 
 }
